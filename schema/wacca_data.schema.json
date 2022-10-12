@@ -1,0 +1,618 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://w.yello.ooo/wacca_data.schema.json",
+  "title": "WACCA Data",
+  "description": "A format to store information regarding a player of a popular game",
+  "type": "object",
+  "properties": {
+    "player": {
+      "description": "Data regarding the player",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "icon": {
+          "type": "integer"
+        },
+        "color": {
+          "type": "integer"
+        },
+        "plate": {
+          "type": "integer"
+        },
+        "navigator": {
+          "type": "integer"
+        },
+        "title": {
+          "type": "string"
+        },
+        "level": {
+          "type": "integer"
+        },
+        "emblem": {
+          "type": "object",
+          "properties": {
+            "stage": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 14
+            },
+            "type": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 3
+            }
+          },
+          "required": ["stage", "type"]
+        },
+        "rate": {
+          "type": "integer"
+        },
+        "points": {
+          "type": "integer",
+          "maximum": 99999
+        },
+        "lifetimePoints": {
+          "type": "integer"
+        },
+        "usedPoints": {
+          "type": "integer"
+        },
+        "exTickets": {
+          "type": "integer",
+          "maximum": 10
+        },
+        "missionStage": {
+          "type": "integer"
+        },
+
+        "settings": {
+          "type": "object",
+          "properties": {
+            "game": {
+              "type": "object",
+              "properties": {
+                "noteSpeed": {
+                  "type": "number",
+                  "minimum": 1.0,
+                  "maximum": 6.0
+                },
+                "judgeLineTiming": {
+                  "type": "number",
+                  "minimum": -10.0,
+                  "maximum": 10.0
+                },
+                "mask": {
+                  "type": "integer",
+                  "maximum": 4
+                },
+                "movie": {
+                  "type": ["boolean", "string"],
+                  "enum": [true, false, "ask"]
+                },
+                "bonusNoteEffect": {
+                  "type": "boolean"
+                },
+                "mirror": {
+                  "type": "boolean"
+                },
+                "giveup": {
+                  "type": "integer",
+                  "maximum": 5
+                }
+              }
+            },
+            "display": {
+              "type": "object",
+              "properties": {
+                "judgePosition": {
+                  "type": "integer",
+                  "maximum": 3
+                },
+                "judgeDetail": {
+                  "type": "boolean"
+                },
+                "informationMask": {
+                  "type": "integer",
+                  "maximum": 5
+                },
+                "guideLineInterval": {
+                  "type": "integer",
+                  "maximum": 7
+                },
+                "guideLineMask": {
+                  "type": "integer",
+                  "maximum": 5
+                },
+                "guideMeasureLine": {
+                  "type": "boolean"
+                },
+                "centerDisplay": {
+                  "type": "integer",
+                  "maximum": 7
+                },
+                "scoreDisplay": {
+                  "type": "integer",
+                  "maximum": 1
+                },
+                "multiRankDisplay": {
+                  "type": "boolean"
+                },
+                "emblemDisplay": {
+                  "type": "boolean"
+                },
+                "rateDisplay": {
+                  "type": "boolean"
+                },
+                "playerLevelDisplay": {
+                  "type": "boolean"
+                },
+                "gateDirectingSkip": {
+                  "type": "boolean"
+                },
+                "missionDirectingSkip": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "design": {
+              "type": "object",
+              "properties": {
+                "myColor": {
+                  "type": "object",
+                  "properties": {
+                    "current": {
+                      "type": "integer"
+                    },
+                    "unlocked": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "required": ["current", "unlocked"]
+                },
+                "noteWidth": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 5
+                },
+                "touchNoteColor": {
+                  "type": "integer"
+                },
+                "chainNoteColor": {
+                  "type": "integer"
+                },
+                "slideNoteLeftColor": {
+                  "type": "integer"
+                },
+                "slideNoteRightColor": {
+                  "type": "integer"
+                },
+                "snapNoteUpColor": {
+                  "type": "integer"
+                },
+                "snapNoteDownColor": {
+                  "type": "integer"
+                },
+                "holdNoteColor": {
+                  "type": "integer"
+                },
+                "slideColorInvert": {
+                  "type": "boolean"
+                },
+                "touchEffectPop": {
+                  "type": "object",
+                  "properties": {
+                    "current": {
+                      "type": "integer"
+                    },
+                    "unlocked": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "required": ["current", "unlocked"]
+                },
+                "touchEffectShoot": {
+                  "type": "boolean"
+                },
+                "keyBeam": {
+                  "type": "boolean"
+                },
+                "rNoteEffect": {
+                  "type": "boolean"
+                }
+              }
+            },
+            "sound": {
+              "type": "object",
+              "properties": {
+                "noteTouchSe": {
+                  "type": "object",
+                  "properties": {
+                    "curent": {
+                      "type": "integer"
+                    },
+                    "unlocked": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer"
+                      }
+                    }
+                  },
+                  "required": ["current", "unlocked"]
+                },
+                "bgmVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "guideSoundVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "touchNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "holdNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "slideNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "snapNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "chainNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "bonusNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                },
+                "charaSound": {
+                  "type": "boolean"
+                },
+                "rNoteVolume": {
+                  "type": "integer",
+                  "multipleOf": 10,
+                  "maximum": 100
+                }
+              }
+            }
+          },
+          "required": ["game", "display", "design", "sound"]
+        },
+        "songs": {
+          "description": "A list of songs this player has access to and their scores",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "playCount": {
+                "type": "integer"
+              },
+              "difficulties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "score": {
+                      "type": "integer",
+                      "maximum": 1000000
+                    },
+                    "rating": {
+                      "type": "integer"
+                    },
+                    "achieve": {
+                      "type": "integer"
+                    },
+                    "playCount": {
+                      "type": "integer"
+                    },
+                    "leaderboard": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["score"]
+                },
+                "minItems": 3,
+                "maxItems": 4
+              }
+            },
+            "required": ["id"]
+          },
+          "minItems": 1
+        },
+        "favorites": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "trophies": {
+          "description": "A list of all 3 seasons of trophies.",
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "unlocked": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["id", "unlocked"]
+            }
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "recents": {
+          "description": "A list of up to 50 of the most recent plays, and their score breakdown",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "difficulty": {
+                "type": "integer"
+              },
+              "score": {
+                "type": "integer",
+                "maximum": 1000000
+              },
+              "timestamp": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "newRecord": {
+                "type": "boolean"
+              },
+              "maxCombo": {
+                "type": "integer"
+              },
+              "judgements": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "timings": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "rating": {
+                "type": "integer"
+              },
+              "achieve": {
+                "type": "integer"
+              }
+            },
+            "required": ["id", "score", "difficulty"]
+          },
+          "minItems": 1,
+          "maxItems": 50
+        },
+        "friends": {
+          "description": "A list of this player's friends",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "friendCode": {
+                "type": "integer"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "rate": {
+                "type": "integer"
+              },
+              "icon": {
+                "type": "integer"
+              },
+              "color": {
+                "type": "integer"
+              },
+              "favorite": {
+                "type": "boolean"
+              }
+            },
+            "required": ["name", "friendCode"]
+          },
+          "minItems": 1,
+          "maxItems": 100
+        },
+        "stages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "songs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "score": {
+                      "type": "integer",
+                      "maximum": 1000000
+                    }
+                  }
+                }
+              },
+              "details": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "integer"
+                  },
+                  "leaderboard": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "required": ["id", "details"]
+          },
+          "minItems": 1
+        },
+        "titles": {
+          "type": "object",
+          "properties": {
+            "preset": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            },
+            "special": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              },
+              "minItems": 1
+            }
+          },
+          "required": ["preset", "special"]
+        },
+        "icons": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1
+        },
+        "plates": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1
+        },
+        "navigators": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1
+        },
+        "unlocks": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "totalHighScore": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "gates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "progress": {
+                "type": "integer"
+              },
+              "progressMax": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "boxes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "integer"
+                    },
+                    "unlocked": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "required": ["id"]
+          },
+          "minItems": 1
+        }
+      },
+      "required": ["id", "name"]
+    }
+  },
+  "required": ["player"]
+}

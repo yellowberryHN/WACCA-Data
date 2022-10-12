@@ -1,0 +1,35 @@
+notes about settings:
+
+bg movie:
+ask = 0
+OFF = 1
+ON = 2
+
+mirror:
+standard = 0
+mirror = 1
+
+give up border:
+none = 0
+no touch = 1
+S = 2
+SS = 3
+SSS = 4
+PB = 5
+
+judge pos:
+center = 0
+under = 1
+top = 2
+off = 3
+
+center display:
+none = 0
+combo = 1
+score (add) = 2
+score (sub) = 3
+S = 4
+SS = 5
+SSS = 6
+PB = 7
+
